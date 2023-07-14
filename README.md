@@ -1,16 +1,23 @@
-# money_report
+# Money Report - Sviluppo in corso
 
-A new Flutter project.
+Money Report è un'applicazione sviluppata in Flutter per tracciare le entrate ed uscite e monitorare l'andamento del proprio patrimonio. L'applicazione consente all'utente di categorizzare le proprie transazioni e visualizzarle tramite grafici intuitivi.
 
-## Getting Started
+## Funzionalità
 
-This project is a starting point for a Flutter application.
+- Registrazione e login dell'utente
+- Aggiunta di transazioni con importo, data e categoria
+- Categorizzazione personalizzata delle transazioni
+- Visualizzazione delle transazioni in elenco o tramite grafici
+- Esportazione dei dati in formato Excel
 
-A few resources to get you started if this is your first Flutter project:
+## Requisiti
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter SDK
+- Dispositivo Android o iOS, o emulatore
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Come installare
+
+1. Clonare la repository sul proprio computer
+2. Navigare nella directory del progetto --> cd money-report
+3. Installare le dipendenze del progetto --> flutter pub get
+4. Avviare l'applicazione --> flutter run 
