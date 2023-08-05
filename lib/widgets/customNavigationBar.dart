@@ -18,7 +18,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<Widget> _screens = [
     const Home(),
     const RadarPage(),
-    const MyTabBarView(),
+    // const MyTabBarView(),
+    const Text("test3"),
     const Text("test4")
   ];
 
@@ -38,7 +39,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
@@ -50,7 +50,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           clipBehavior: Clip.none,
           children: [
             CustomPaint(
-              size: Size(size.width, 80),
+              size: Size(ScreenSize.screenWidth, 80),
               painter: BNBCustomPainter(),
             ),
             Center(
@@ -68,12 +68,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   )),
             ),
             SizedBox(
-              width: size.width,
+              width: ScreenSize.screenWidth,
               height: 80,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconButton(
+                  IconButton(   
                     icon: _selectedIndex == 0
                         ? const Icon(Icons.home, color: AppColor.primaryBlue)
                         : const Icon(
@@ -96,7 +96,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                         setBottomBarIndex(1);
                       }),
                   Container(
-                    width: size.width * 0.20,
+                    width: ScreenSize.screenWidth * 0.20,
                   ),
                   IconButton(
                       icon: _selectedIndex == 2

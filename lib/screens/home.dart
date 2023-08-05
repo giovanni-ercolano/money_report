@@ -19,51 +19,54 @@ class _HomeState extends State<Home> {
     return Consumer<ThemeModel>(builder: (context, model, child) {
       return SafeArea(
         child: Scaffold(
-          body: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: ScreenSize.padding20,
-                vertical: ScreenSize.padding10),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text("****6803", style: TextStyle(fontSize: 16)),
-                    Expanded(child: Container()),
-                    IconButton(
-                      onPressed: () => {},
-                      icon: const Icon(Icons.account_circle),
-                    ),
-                  ],
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Row(
-                    children: const [
-                      Text(
-                        "Total Balance:",
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: ScreenSize.padding20,
+                  vertical: ScreenSize.padding10),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("****6803", style: TextStyle(fontSize: 16)),
+                      Expanded(child: Container()),
+                      IconButton(
+                        onPressed: () => {},
+                        icon: const Icon(Icons.account_circle),
                       ),
-                      Text(
-                        " \$48,560",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        )
-                      )
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: ScreenSize.padding8,
-                ),
-                SizedBox(
-                  height: ScreenSize.screenHeight * 0.4,
-                  child: const MyTabBarView(),
-                )
-              ],
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      children: const [
+                        Text(
+                          "Total Balance:",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        Text(
+                          " \$48,560",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          )
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: ScreenSize.padding8,
+                  ),
+                  SizedBox(
+                    height: ScreenSize.screenHeight * 0.6,
+                    child: const MyTabBarView(),
+                  )
+                  
+                ],
+              ),
             ),
           ),
         ),
