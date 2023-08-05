@@ -1,28 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:money_report/screens/home.dart';
-import 'package:money_report/styles/app_color.dart';
+import 'package:flutter/services.dart';
+import 'package:money_report/providers/theme_provider.dart';
+import 'package:money_report/styles/app_theme.dart';
+import 'package:money_report/widgets/customNavigationBar.dart';
+import 'package:provider/provider.dart';
+
+import 'styles/app_color.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  final themeModel = ThemeModel();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeModel>.value(value: themeModel),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSwatch(backgroundColor: AppColor.primaryCyan)
-        ),
-        
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const Home(),
-        });
+    return Consumer<ThemeModel>(
+      builder: (context, themeModel, child) {
+        final isDarkMode = themeModel.isDarkMode;
+        final statusBarColor =
+            isDarkMode ? AppColor.additionalSix : AppColor.additionalOne;
+        final statusBarIconBrightness =
+            isDarkMode ? Brightness.light : Brightness.dark;
+
+        SystemChrome.setSystemUIOverlayStyle(
+          SystemUiOverlayStyle(
+            statusBarColor: statusBarColor,
+            statusBarIconBrightness: statusBarIconBrightness,
+          ),
+        );
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Money Report',
+          theme: getThemeData(themeModel.isDarkMode, Brightness.light),
+          darkTheme: getThemeData(themeModel.isDarkMode, Brightness.dark),
+          // home: const CustomBottomNavigationBar(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const CustomBottomNavigationBar(),
+          },
+        );
+      },
+    );
   }
 }
