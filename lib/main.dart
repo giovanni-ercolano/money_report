@@ -4,12 +4,20 @@ import 'package:money_report/providers/theme_provider.dart';
 import 'package:money_report/styles/app_theme.dart';
 import 'package:money_report/widgets/customNavigationBar.dart';
 import 'package:provider/provider.dart';
-
 import 'styles/app_color.dart';
+//firebase
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  
   final themeModel = ThemeModel();
+  
   runApp(
     MultiProvider(
       providers: [

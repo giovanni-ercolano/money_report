@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/providers/theme_provider.dart';
+import 'package:money_report/widgets/home_category_list.dart';
 import 'package:money_report/widgets/tab_bar_view.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (context, model, child) {
@@ -47,13 +47,11 @@ class _HomeState extends State<Home> {
                             fontSize: 18,
                           ),
                         ),
-                        Text(
-                          " \$48,560",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          )
-                        )
+                        Text(" \$48,560",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ))
                       ],
                     ),
                   ),
@@ -63,8 +61,8 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: ScreenSize.screenHeight * 0.6,
                     child: const MyTabBarView(),
-                  )
-                  
+                  ),
+                  // const HomeCategoryList(),
                 ],
               ),
             ),

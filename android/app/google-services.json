@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "995716841820",
+    "project_id": "money-report-c87e7",
+    "storage_bucket": "money-report-c87e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995716841820:android:ae47c6c4cb3aaceac04199",
+        "android_client_info": {
+          "package_name": "money.report.com.money_report"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995716841820-ps8c1ur2u8t941ajcpmjt77mhbsh1j3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsZNjjozSmDz5YzfGCeSlYZ15aEYBYLCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995716841820-ps8c1ur2u8t941ajcpmjt77mhbsh1j3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
