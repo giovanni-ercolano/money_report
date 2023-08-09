@@ -1,23 +1,26 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:money_report/providers/theme_provider.dart';
 import 'package:money_report/styles/app_theme.dart';
 import 'package:money_report/widgets/customNavigationBar.dart';
 import 'package:provider/provider.dart';
-import 'styles/app_color.dart';
+import 'screens/auth.dart';
 //firebase
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   //firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   final themeModel = ThemeModel();
-  
+
   runApp(
     MultiProvider(
       providers: [
@@ -28,35 +31,39 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
     return Consumer<ThemeModel>(
       builder: (context, themeModel, child) {
-        final isDarkMode = themeModel.isDarkMode;
-        final statusBarColor =
-            isDarkMode ? AppColor.additionalSix : AppColor.additionalOne;
-        final statusBarIconBrightness =
-            isDarkMode ? Brightness.light : Brightness.dark;
-
-        SystemChrome.setSystemUIOverlayStyle(
-          SystemUiOverlayStyle(
-            statusBarColor: statusBarColor,
-            statusBarIconBrightness: statusBarIconBrightness,
-          ),
-        );
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Money Report',
           theme: getThemeData(themeModel.isDarkMode, Brightness.light),
           darkTheme: getThemeData(themeModel.isDarkMode, Brightness.dark),
           // home: const CustomBottomNavigationBar(),
-          initialRoute: '/',
-          routes: {
-            '/': (context) => const CustomBottomNavigationBar(),
-          },
+          // initialRoute: '/',
+          // routes: {
+          //   '/': (context) => const CustomBottomNavigationBar(),
+          // },
+          home: StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+              if (snapshot.hasData && snapshot.data != null) {
+                return const CustomBottomNavigationBar();
+              } else {
+                return const AuthPage();
+              } // Aggiungi un indicatore di caricamento durante la connessione
+            },
+          ),
         );
       },
     );
