@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/services/screen_size.dart';
 import 'package:money_report/styles/app_color.dart';
-import '../screens/auth.dart';
 import '../screens/home.dart';
 import '../screens/radar.dart';
 
@@ -18,7 +17,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<Widget> _screens = [
     const Home(),
     const RadarPage(),
-    const AuthPage(),
+    const Text("test3"),
+    // const AuthPage(),
     const Text("test4")
   ];
 

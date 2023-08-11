@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -39,6 +40,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Future<bool> isNetworkAvailable() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.none) {
+      return false;
+    }
+    // print(connectivityResult);
+    return true;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<ThemeModel>().initializeSystemThemeListener();
+  }
+
   @override
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
