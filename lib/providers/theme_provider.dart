@@ -4,8 +4,8 @@ import 'dart:ui' as ui;
 
 class ThemeModel extends ChangeNotifier {
   bool isDarkMode = false;
-  bool exDarkMode = false;
   bool systemTheme = true;
+  bool exDarkMode = true;
 
   ThemeModel() {
     _loadThemePreference();
@@ -28,26 +28,36 @@ class ThemeModel extends ChangeNotifier {
     await prefs.setBool('systemTheme', systemTheme);
   }
 
-  void toggleTheme() {
-    isDarkMode = !isDarkMode;
-    exDarkMode = isDarkMode;
+  void initializeSystemThemeListener() {
+    if (systemTheme == true && exDarkMode == true) {
+      ui.window.onPlatformBrightnessChanged = () {
+        isDarkMode = ui.window.platformBrightness == ui.Brightness.dark;
+        notifyListeners();
+      };
+    }
+  }
+
+  void darkModeOn() {
+    isDarkMode = true;
+    exDarkMode = false;
+    systemTheme = false;
     _saveThemePreference();
     notifyListeners();
   }
 
-  void chooseTheme(value) {
-    systemTheme = value;
-    if (systemTheme) {
-      isDarkMode = ui.window.platformBrightness == ui.Brightness.dark;
-    } else {
-      isDarkMode = exDarkMode;
-    }
+  void lightModeOn() {
+    isDarkMode = false;
+    exDarkMode = false;
+    systemTheme = false;
+    _saveThemePreference();
+    notifyListeners();
+  }
+
+  void systemThemeOn() {
+    systemTheme = true;
+    exDarkMode = true;
+    isDarkMode = ui.window.platformBrightness == ui.Brightness.dark;
     _saveThemePreference();
     notifyListeners();
   }
 }
-
-
-              // FloatingActionButton(
-              //     onPressed: model.toggleTheme,//testo cambio tema funzionante
-              //     child: const Icon(Icons.light_mode)),

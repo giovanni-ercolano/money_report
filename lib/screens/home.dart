@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/providers/theme_provider.dart';
-import 'package:money_report/widgets/home_category_list.dart';
+import 'package:money_report/screens/profile.dart';
 import 'package:money_report/widgets/tab_bar_view.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +14,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  void _openProfilePage(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ProfilePage(),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeModel>(builder: (context, model, child) {
@@ -32,7 +43,7 @@ class _HomeState extends State<Home> {
                       const Text("****6803", style: TextStyle(fontSize: 16)),
                       Expanded(child: Container()),
                       IconButton(
-                        onPressed: () => {},
+                        onPressed: () => _openProfilePage(context),
                         icon: const Icon(Icons.account_circle),
                       ),
                     ],
