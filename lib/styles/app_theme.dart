@@ -3,7 +3,6 @@ import 'app_color.dart';
 
 ThemeData getThemeData(bool isDarkMode, Brightness tema) {
   return ThemeData(
-    
     scaffoldBackgroundColor:
         isDarkMode ? AppColor.additionalSix : AppColor.additionalOne,
     brightness: tema,
@@ -21,34 +20,57 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
     //bottoni
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+          minimumSize: const Size(double.infinity, 52),
           textStyle: TextStyle(
             backgroundColor: AppColor.primaryBlue,
             color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
           backgroundColor: AppColor.primaryBlue),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: AppColor.primaryBlue,
-      foregroundColor: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+      foregroundColor:
+          isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
     ),
+
+    //design input
     inputDecorationTheme: InputDecorationTheme(
-        labelStyle: TextStyle(color: isDarkMode ? Colors.white : Colors.black),
+        labelStyle: TextStyle(
+          color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+        ),
+        hintStyle: TextStyle(
+          color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+        ),
+        errorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+          color: Colors.red,
+        )),
         filled: true,
         fillColor: isDarkMode
             ? Colors.grey.shade900.withOpacity(0.50)
             : Colors.grey.shade400.withOpacity(0.50),
         enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.transparent),
-            borderRadius: BorderRadius.circular(500)),
+          borderSide: BorderSide(
+            color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+          ),
+          borderRadius: BorderRadius.circular(12),
+        ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-              color:
-                  isDarkMode ? AppColor.additionalOne : AppColor.additionalSix),
-          borderRadius: BorderRadius.circular(500),
+              color: isDarkMode ? AppColor.primaryBlue : AppColor.primaryBlue),
+          borderRadius: BorderRadius.circular(12),
         ),
         floatingLabelStyle: TextStyle(
             color:
                 isDarkMode ? AppColor.additionalOne : AppColor.additionalSix)),
+    //tema del divider
+    dividerTheme: DividerThemeData(
+      color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+    ),
+    //colore e stile testo
     textTheme: TextTheme(
       displayLarge: TextStyle(
         fontSize: 72.0,
