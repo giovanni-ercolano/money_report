@@ -57,9 +57,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    FlutterNativeSplash.remove();
     return Consumer<ThemeModel>(
       builder: (context, themeModel, child) {
+        FlutterNativeSplash.remove();
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Money Report',
