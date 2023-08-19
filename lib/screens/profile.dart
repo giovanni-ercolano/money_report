@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:money_report/services/screen_size.dart';
+import 'package:money_report/styles/app_color.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
 import '../services/firebase_auth.dart';
+import '../widgets/radio_list_tile_theme.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -27,37 +30,36 @@ class _ProfilePageState extends State<ProfilePage> {
                 body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RadioListTile<ThemeMode>(
-              title: const Text('Modalità Chiara'),
-              value: ThemeMode.light,
-              groupValue: model.systemTheme ? null : (model.isDarkMode ? ThemeMode.dark : ThemeMode.light),
-              onChanged: (value) {
-                setState(() {
-                  model.lightModeOn();
-                  // Qui puoi applicare il tema scelto all'app
-                });
-              },
-            ),
-            RadioListTile<ThemeMode>(
-              title: const Text('Modalità Scura'),
-              value: ThemeMode.dark,
-              groupValue: model.systemTheme ? null : (model.isDarkMode ? ThemeMode.dark : ThemeMode.light),
-              onChanged: (value) {
-                setState(() {
-                  model.darkModeOn();
-                  // Qui puoi applicare il tema scelto all'app
-                });
-              },
-            ),
-            RadioListTile<ThemeMode>(
-              title: const Text('Tema di Sistema'),
-              value: ThemeMode.system,
-              groupValue: model.systemTheme ? ThemeMode.system : null,
-              onChanged: (value) {
-                setState(() {
-                  model.systemThemeOn();
-                  // Qui puoi applicare il tema scelto all'app
-                });
+            IconButton(
+              icon: model.isDarkMode
+                  ? const Icon(Icons.nightlight_round)
+                  : const Icon(Icons.wb_sunny_rounded),
+              onPressed: () {
+                showModalBottomSheet(
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  )),
+                  context: context,
+                  builder: (context) {
+                    return Container(
+                      height: ScreenSize.screenHeight /
+                          2.9, // Altezza desiderata del bottom sheet
+                      decoration: BoxDecoration(
+                        color: model.isDarkMode
+                            ? AppColor.additionalSix
+                            : AppColor.additionalOne,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20.0),
+                          topRight: Radius.circular(20.0),
+                        ),
+                      ),
+                      child:
+                          const RadioListTileTheme(), // Il tuo widget personalizzato
+                    );
+                  },
+                );
               },
             ),
             Center(

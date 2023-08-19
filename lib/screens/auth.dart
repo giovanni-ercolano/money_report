@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:money_report/models/user_model.dart';
 import 'package:money_report/services/screen_size.dart';
-import 'package:sign_button/sign_button.dart';
 //firebase
 import '../services/firebase_auth.dart';
+import '../services/firebase_db.dart';
 import '../widgets/login_icon_buttons.dart';
 
 class AuthPage extends StatefulWidget {
@@ -26,7 +27,7 @@ class _AuthPageState extends State<AuthPage> {
     try {
       await Auth().signInWithEmailAndPassword(
         email: _usernameController.text.trim(),
-        password: _passwordController.text,
+        password: _passwordController.text.trim(),
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
@@ -35,13 +36,23 @@ class _AuthPageState extends State<AuthPage> {
     }
   }
 
-  Future<void> createAccount() async {
+  Future<bool> createAccount() async {
     try {
       await Auth().createUserWithEmailAndPassword(
-        email: _usernameController.text,
-        password: _passwordController.text,
+        email: _usernameController.text.trim(),
+        password: _passwordController.text.trim(),
       );
+      return true;
     } on FirebaseAuthException {}
+    return false;
+  }
+
+  Future<void> accountOnDb(user) async {
+    await FirebaseDb().createUsers(user);
+  }
+
+  getUserUid() {
+    return Auth().getUser().uid;
   }
 
   @override
@@ -142,7 +153,15 @@ class _AuthPageState extends State<AuthPage> {
                         if (_isLoginForm) {
                           await signIn();
                         } else {
-                          await createAccount();
+                          final success = await createAccount();
+                          if (success) {
+                            final user = UserModel(
+                                uid: getUserUid(),
+                                email: _usernameController.text.trim());
+                            await accountOnDb(user);
+                          } else {
+                            // Gestisci il caso in cui la creazione dell'account non abbia avuto successo.
+                          }
                         }
                       }
                     },

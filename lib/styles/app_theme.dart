@@ -70,6 +70,22 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
     dividerTheme: DividerThemeData(
       color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
     ),
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateProperty.all(
+        isDarkMode ? AppColor.primaryBlue : AppColor.primaryCyan,
+      ),
+
+    ),
+    iconTheme: IconThemeData(
+      color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+    ),
+    // iconButtonTheme: IconButtonThemeData(
+    //   style: ButtonStyle(
+    //     backgroundColor: MaterialStateProperty.all(
+    //       isDarkMode ? AppColor.primaryBlue : AppColor.primaryCyan,
+    //     )
+    //   )
+    // ),
     //colore e stile testo
     textTheme: TextTheme(
       displayLarge: TextStyle(
