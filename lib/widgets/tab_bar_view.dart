@@ -5,7 +5,9 @@ import 'package:money_report/widgets/home_pie_chart.dart';
 import '../styles/app_color.dart';
 
 class MyTabBarView extends StatefulWidget {
-  const MyTabBarView({Key? key}) : super(key: key);
+  const MyTabBarView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MyTabBarView> createState() => _MyTabBarViewState();

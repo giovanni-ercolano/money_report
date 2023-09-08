@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:money_report/models/user_model.dart';
+import 'package:money_report/models/users/user_model.dart';
 import 'package:money_report/services/screen_size.dart';
 //firebase
 import '../services/firebase_auth.dart';

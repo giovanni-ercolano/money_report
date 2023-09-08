@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../services/firebase_auth.dart';
+
 class RadarPage extends StatefulWidget {
   const RadarPage({super.key});
 
@@ -8,12 +10,19 @@ class RadarPage extends StatefulWidget {
 }
 
 class _RadarPageState extends State<RadarPage> {
+  Future<void> logout() async {
+    await Auth().signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          child: const Text("Radar"),
+          child: Center(
+            child: ElevatedButton(
+                onPressed: () => logout(), child: const Text("Logout")),
+          ),
         ),
       ),
     );
