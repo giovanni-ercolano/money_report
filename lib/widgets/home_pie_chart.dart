@@ -14,7 +14,7 @@ class HomePieChart extends StatefulWidget {
 class _HomePieChartState extends State<HomePieChart> {
   String activeFilter = 'Month';
   List<String> filterOptions = ['Day', 'Week', 'Month', 'Year', 'Period'];
-
+  final DateTime _selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +74,9 @@ class _HomePieChartState extends State<HomePieChart> {
                   ),
                 ),
                 Expanded(child: Container()),
-                const Text("04", style: TextStyle(fontSize: 20)),
+                Text(
+                    '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+                    style: const TextStyle(fontSize: 20)),
                 Expanded(child: Container()),
                 InkWell(
                   onTap: () {
@@ -95,7 +97,8 @@ class _HomePieChartState extends State<HomePieChart> {
                     PieChart(
                       PieChartData(
                         centerSpaceRadius: 80,
-                        sections: [ //da ridurre il quantitativo di righe, operazione troppo rindondante al momento
+                        sections: [
+                          //da ridurre il quantitativo di righe, operazione troppo rindondante al momento
                           PieChartSectionData(
                             color: Colors.red,
                             value: 40,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/services/screen_size.dart';
 import 'package:money_report/styles/app_color.dart';
+import 'package:money_report/widgets/add_transaction_dialog.dart';
 import '../screens/home.dart';
 import '../screens/radar.dart';
 
@@ -60,7 +61,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   ),
                   backgroundColor: AppColor.primaryBlue,
                   elevation: 0.1,
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const AddTransactionDialog();
+                      },
+                    );
+                  },
                   child: const Icon(
                     Icons.add,
                     size: 35,
