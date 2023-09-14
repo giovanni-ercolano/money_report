@@ -71,9 +71,6 @@ class _MyTabBarViewState extends State<MyTabBarView>
           child: TabBarView(
             controller: tabController,
             children: const [
-              // Container(
-              //   child: const Text('Tab 1'),
-              // ),
               HomePieChart(),
               Text('Tab 2'),
             ],

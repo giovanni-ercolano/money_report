@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../models/users/user_model.dart';
 import '../services/screen_size.dart';
 import '../widgets/home_category_list.dart';
+import '../widgets/shimmer_widgets/shimmer_home_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -101,10 +102,7 @@ class _HomeState extends State<Home> {
                       return const Center(child: Text("Loading..."));
                     }
                   } else {
-                    return const Center(
-                        child: CircularProgressIndicator(
-                      color: Colors.red,
-                    ));
+                    return const ShimmerHomeWidget();
                   }
                 },
               ),

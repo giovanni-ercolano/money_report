@@ -75,7 +75,7 @@ class _HomePieChartState extends State<HomePieChart> {
                 ),
                 Expanded(child: Container()),
                 Text(
-                    '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+                    '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
                     style: const TextStyle(fontSize: 20)),
                 Expanded(child: Container()),
                 InkWell(
