@@ -43,9 +43,10 @@ class _HomeState extends State<Home> {
                   if (snapshot.connectionState == ConnectionState.done) {
                     if (snapshot.hasData) {
                       UserModel userData = snapshot.data as UserModel;
-                      
-                      print("lunghezza transazioni: ${userData.transactions?.length}");
-                      
+
+                      print(
+                          "lunghezza transazioni: ${userData.transactions?.length}");
+
                       return Column(
                         children: <Widget>[
                           Row(
@@ -87,7 +88,7 @@ class _HomeState extends State<Home> {
                             child: const MyTabBarView(),
                           ),
                           SizedBox(
-                            height: ScreenSize.screenHeight * 0.3,
+                            height: ScreenSize.screenHeight * 0.4,
                             child: HomeCategoryList(data: userData),
                           )
                         ],

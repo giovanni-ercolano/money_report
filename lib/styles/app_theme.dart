@@ -20,9 +20,10 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
     //bottoni
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-          minimumSize: const Size(double.infinity, 52),
+          maximumSize: const Size(double.infinity, 52),
           textStyle: TextStyle(
-            backgroundColor: AppColor.primaryBlue,
+            backgroundColor:
+                isDarkMode ? AppColor.primaryBlue : AppColor.primaryCyan,
             color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
           ),
           shape: RoundedRectangleBorder(
@@ -74,7 +75,6 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
       fillColor: MaterialStateProperty.all(
         isDarkMode ? AppColor.primaryBlue : AppColor.primaryCyan,
       ),
-
     ),
     iconTheme: IconThemeData(
       color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,

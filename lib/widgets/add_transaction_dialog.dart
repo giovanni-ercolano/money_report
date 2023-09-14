@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:money_report/models/data/data_model.dart';
 import 'package:money_report/models/transactions/transaction_model.dart';
 import 'package:money_report/models/users/user_model.dart';
 import '../models/category/category_model.dart';
@@ -53,7 +52,6 @@ class _AddTransactionDialogState extends State<AddTransactionDialog> {
       userToUpdate.transactions = existingTransactions.cast<TransactionModel>();
       // Salva l'utente aggiornato nel database
       await UserController.instance.updateRecord(userToUpdate);
-      
     }
   }
 

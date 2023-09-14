@@ -28,8 +28,12 @@ class _ProfilePageState extends State<ProfilePage> {
         return SafeArea(
             child: Scaffold(
                 body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Row(children: [
+              IconButton(
+                  onPressed: () => {Navigator.of(context).pop()},
+                  icon: const Icon(Icons.arrow_back)),
+            ]),
             IconButton(
               icon: model.isDarkMode
                   ? const Icon(Icons.nightlight_round)
@@ -63,8 +67,11 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
             Center(
-              child: ElevatedButton(
-                  onPressed: () => logout(), child: const Text("Logout")),
+              child: Padding(
+                padding: EdgeInsets.all(ScreenSize.padding10),
+                child: ElevatedButton(
+                    onPressed: () => logout(), child: const Text("Logout")),
+              ),
             )
           ],
         )));
