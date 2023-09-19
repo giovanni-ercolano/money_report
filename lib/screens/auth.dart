@@ -5,7 +5,7 @@ import 'package:money_report/services/screen_size.dart';
 //firebase
 import '../services/firebase_auth.dart';
 import '../services/firebase_db.dart';
-import '../widgets/login_icon_buttons.dart';
+import '../widgets/auth/login_icon_buttons.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);

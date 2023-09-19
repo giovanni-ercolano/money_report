@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/models/transactions/transaction_model.dart';
 import 'package:money_report/models/users/user_model.dart';
-import '../models/category/category_model.dart';
-import '../models/users/user_controller.dart';
+import '../../models/category/category_model.dart';
+import '../../models/users/user_controller.dart';
 
 class AddTransactionDialog extends StatefulWidget {
   const AddTransactionDialog({super.key});

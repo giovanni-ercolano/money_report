@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sign_button/sign_button.dart';
-import '../providers/theme_provider.dart';
-import '../services/screen_size.dart';
+import '../../providers/theme_provider.dart';
+import '../../services/screen_size.dart';
 
 class LoginIconButtons extends StatelessWidget {
   const LoginIconButtons({super.key});

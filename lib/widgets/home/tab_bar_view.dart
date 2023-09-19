@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/services/screen_size.dart';
-import 'package:money_report/widgets/home_pie_chart.dart';
+import 'package:money_report/widgets/home/home_pie_chart.dart';
 
-import '../styles/app_color.dart';
+import '../../styles/app_color.dart';
 
 class MyTabBarView extends StatefulWidget {
   const MyTabBarView({

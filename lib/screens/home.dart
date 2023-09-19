@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:money_report/models/users/user_controller.dart';
 import 'package:money_report/providers/theme_provider.dart';
 import 'package:money_report/screens/profile.dart';
-import 'package:money_report/widgets/tab_bar_view.dart';
+import 'package:money_report/widgets/home/tab_bar_view.dart';
 import 'package:provider/provider.dart';
 import '../models/users/user_model.dart';
 import '../services/screen_size.dart';
-import '../widgets/home_category_list.dart';
+import '../widgets/home/home_category_list.dart';
 import '../widgets/shimmer_widgets/shimmer_home_widget.dart';
 
 class Home extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:money_report/services/screen_size.dart';
 
-import '../styles/app_color.dart';
+import '../../styles/app_color.dart';
 
 class HomePieChart extends StatefulWidget {
   const HomePieChart({Key? key}) : super(key: key);

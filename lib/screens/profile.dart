@@ -4,7 +4,7 @@ import 'package:money_report/styles/app_color.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
 import '../services/firebase_auth.dart';
-import '../widgets/radio_list_tile_theme.dart';
+import '../widgets/profile/radio_list_tile_theme.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
