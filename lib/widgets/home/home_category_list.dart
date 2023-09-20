@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/services/screen_size.dart';
 
-import '../models/users/user_model.dart';
+import '../../models/users/user_model.dart';
 
 class HomeCategoryList extends StatefulWidget {
   const HomeCategoryList({Key? key, required this.data}) : super(key: key);

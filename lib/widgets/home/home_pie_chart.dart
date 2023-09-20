@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:money_report/services/screen_size.dart';
 
-import '../styles/app_color.dart';
+import '../../styles/app_color.dart';
 
 class HomePieChart extends StatefulWidget {
   const HomePieChart({Key? key}) : super(key: key);
@@ -75,7 +75,7 @@ class _HomePieChartState extends State<HomePieChart> {
                 ),
                 Expanded(child: Container()),
                 Text(
-                    '${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+                    '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
                     style: const TextStyle(fontSize: 20)),
                 Expanded(child: Container()),
                 InkWell(

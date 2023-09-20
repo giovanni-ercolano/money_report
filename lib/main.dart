@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:money_report/providers/theme_provider.dart';
 import 'package:money_report/styles/app_theme.dart';
-import 'package:money_report/widgets/customNavigationBar.dart';
+import 'package:money_report/widgets/navigationBar/customNavigationBar.dart';
 import 'package:provider/provider.dart';
 import 'models/data/data_model.dart';
 import 'screens/auth.dart';

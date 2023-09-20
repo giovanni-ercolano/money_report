@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:money_report/services/screen_size.dart';
 import 'package:money_report/styles/app_color.dart';
-import 'package:money_report/widgets/add_transaction_dialog.dart';
-import '../screens/home.dart';
-import '../screens/radar.dart';
+import 'package:money_report/widgets/navigationBar/add_transaction_dialog.dart';
+import '../../screens/home.dart';
+import '../../screens/radar.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({Key? key}) : super(key: key);
