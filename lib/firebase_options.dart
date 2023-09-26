@@ -45,42 +45,44 @@ class DefaultFirebaseOptions {
   }
 
   static FirebaseOptions web = FirebaseOptions(
-    apiKey: dotenv.env['FIREBASE_API_KEY'] as String,
-    appId: dotenv.env['FIREBASE_APP_ID'] as String,
-    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] as String,
-    projectId: dotenv.env['FIREBASE_PROJECT_ID'] as String,
+    apiKey: dotenv.env['FIREBASE_API_KEY_WEB'].toString(),
+    appId: dotenv.env['FIREBASE_APP_ID_WEB'].toString(),
+    messagingSenderId:
+        dotenv.env['FIREBASE_MESSAGING_SENDER_ID_WEB'].toString(),
+    projectId: dotenv.env['FIREBASE_PROJECT_ID_WEB'].toString(),
     authDomain: 'money-report-c87e7.firebaseapp.com',
-    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] as String,
-    measurementId: dotenv.env['FIREBASE_MEASUREMENT_ID'] as String,
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET_WEB'].toString(),
+    measurementId: dotenv.env['FIREBASE_MEASUREMENT_ID_WEB'].toString(),
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDsZNjjozSmDz5YzfGCeSlYZ15aEYBYLCU',
-    appId: '1:995716841820:android:ae47c6c4cb3aaceac04199',
-    messagingSenderId: '995716841820',
-    projectId: 'money-report-c87e7',
-    storageBucket: 'money-report-c87e7.appspot.com',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_ANDROID'].toString(),
+    appId: dotenv.env['FIREBASE_APP_ID_ANDROID'].toString(),
+    messagingSenderId:
+        dotenv.env['FIREBASE_MESSAGING_SENDER_ID_ANDROID'].toString(),
+    projectId: dotenv.env['FIREBASE_PROJECT_ID_ANDROID'].toString(),
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET_ANDROID'].toString(),
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBv7v1NHg23K52QNoU0q896uOMmnQdEC84',
-    appId: '1:995716841820:ios:72e4e601d0ba7481c04199',
-    messagingSenderId: '995716841820',
-    projectId: 'money-report-c87e7',
-    storageBucket: 'money-report-c87e7.appspot.com',
-    iosClientId:
-        '995716841820-hklo4j8cq27l41jtv7i69tiieksv3b2n.apps.googleusercontent.com',
-    iosBundleId: 'money.report.com.moneyReport',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_IOS'].toString(),
+    appId: dotenv.env['FIREBASE_APP_ID_IOS'].toString(),
+    messagingSenderId:
+        dotenv.env['FIREBASE_MESSAGING_SENDER_ID_IOS'].toString(),
+    projectId: dotenv.env['FIREBASE_PROJECT_ID_IOS'].toString(),
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET_IOS'].toString(),
+    iosClientId: dotenv.env['FIREBASE_IOS_CLIENT_ID_IOS'].toString(),
+    iosBundleId: dotenv.env['FIREBASE_IOS_BUNDLE_ID_IOS'].toString(),
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBv7v1NHg23K52QNoU0q896uOMmnQdEC84',
-    appId: '1:995716841820:ios:72e4e601d0ba7481c04199',
-    messagingSenderId: '995716841820',
-    projectId: 'money-report-c87e7',
-    storageBucket: 'money-report-c87e7.appspot.com',
-    iosClientId:
-        '995716841820-hklo4j8cq27l41jtv7i69tiieksv3b2n.apps.googleusercontent.com',
-    iosBundleId: 'money.report.com.moneyReport',
+  static FirebaseOptions macos = FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY_MACOS'].toString(),
+    appId: dotenv.env['FIREBASE_APP_ID_MACOS'].toString(),
+    messagingSenderId:
+        dotenv.env['FIREBASE_MESSAGING_SENDER_ID_MACOS'].toString(),
+    projectId: dotenv.env['FIREBASE_PROJECT_ID_MACOS'].toString(),
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET_MACOS'].toString(),
+    iosClientId: dotenv.env['FIREBASE_IOS_CLIENT_ID_MACOS'].toString(),
+    iosBundleId: dotenv.env['FIREBASE_IOS_BUNDLE_ID_MACOS'].toString(),
   );
 }

@@ -12,8 +12,8 @@ import 'screens/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-void main() async {
-  await dotenv.load(fileName: "config_flutter.env");
+Future<void> main() async {
+  await dotenv.load(fileName: '.env');
 
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
