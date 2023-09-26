@@ -1,18 +1,20 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:money_report/providers/theme_provider.dart';
 import 'package:money_report/styles/app_theme.dart';
 import 'package:money_report/widgets/navigationBar/customNavigationBar.dart';
 import 'package:provider/provider.dart';
-import 'models/data/data_model.dart';
 import 'screens/auth.dart';
 //firebase
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  await dotenv.load(fileName: "config_flutter.env");
+
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
@@ -22,7 +24,6 @@ void main() async {
   );
 
   final themeModel = ThemeModel();
-
 
   runApp(
     MultiProvider(

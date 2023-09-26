@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -43,14 +44,14 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCPEdtyZ9_uJYgUO6XiMeEJ7m-W7b18Uns',
-    appId: '1:995716841820:web:9717e4370fd78818c04199',
-    messagingSenderId: '995716841820',
-    projectId: 'money-report-c87e7',
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_API_KEY'] as String,
+    appId: dotenv.env['FIREBASE_APP_ID'] as String,
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] as String,
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] as String,
     authDomain: 'money-report-c87e7.firebaseapp.com',
-    storageBucket: 'money-report-c87e7.appspot.com',
-    measurementId: 'G-G3WJYQC0CX',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] as String,
+    measurementId: dotenv.env['FIREBASE_MEASUREMENT_ID'] as String,
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -67,7 +68,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '995716841820',
     projectId: 'money-report-c87e7',
     storageBucket: 'money-report-c87e7.appspot.com',
-    iosClientId: '995716841820-hklo4j8cq27l41jtv7i69tiieksv3b2n.apps.googleusercontent.com',
+    iosClientId:
+        '995716841820-hklo4j8cq27l41jtv7i69tiieksv3b2n.apps.googleusercontent.com',
     iosBundleId: 'money.report.com.moneyReport',
   );
 
@@ -77,7 +79,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '995716841820',
     projectId: 'money-report-c87e7',
     storageBucket: 'money-report-c87e7.appspot.com',
-    iosClientId: '995716841820-hklo4j8cq27l41jtv7i69tiieksv3b2n.apps.googleusercontent.com',
+    iosClientId:
+        '995716841820-hklo4j8cq27l41jtv7i69tiieksv3b2n.apps.googleusercontent.com',
     iosBundleId: 'money.report.com.moneyReport',
   );
 }
