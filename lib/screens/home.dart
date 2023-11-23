@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:money_report/models/transactions/transaction_model.dart';
 import 'package:money_report/models/users/user_controller.dart';
 import 'package:money_report/providers/theme_provider.dart';
 import 'package:money_report/screens/profile.dart';
@@ -44,7 +45,8 @@ class _HomeState extends State<Home> {
                   if (snapshot.connectionState == ConnectionState.done) {
                     if (snapshot.hasData) {
                       UserModel userData = snapshot.data as UserModel;
-
+                      List<TransactionModel>? transactionList =
+                          userData.transactions;
                       print(
                           "lunghezza transazioni: ${userData.transactions?.length}");
 
@@ -85,13 +87,20 @@ class _HomeState extends State<Home> {
                           ),
                           // Verifica se i dati sono pronti prima di visualizzare il widget
                           SizedBox(
-                            height: ScreenSize.screenHeight * 0.6,
+                            height: ScreenSize.screenHeight * 0.48,
                             child: const MyTabBarView(),
                           ),
                           SizedBox(
                             height: ScreenSize.screenHeight * 0.4,
                             child: HomeCategoryList(data: userData),
-                          )
+                          ),
+
+                          transactionList!.when(
+                            data: (transactions) =>
+                                HomeCategoryList(data: userData),
+                            loading: () => const SizedBox(),
+                            error: (err, stack) => Text('Error: $err'),
+                          ),
                         ],
                       );
                     } else if (snapshot.hasError) {

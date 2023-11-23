@@ -15,6 +15,7 @@ class _HomePieChartState extends State<HomePieChart> {
   String activeFilter = 'Month';
   List<String> filterOptions = ['Day', 'Week', 'Month', 'Year', 'Period'];
   final DateTime _selectedDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,32 +97,32 @@ class _HomePieChartState extends State<HomePieChart> {
                   children: [
                     PieChart(
                       PieChartData(
-                        centerSpaceRadius: 80,
+                        centerSpaceRadius: 60,
                         sections: [
                           //da ridurre il quantitativo di righe, operazione troppo rindondante al momento
                           PieChartSectionData(
                             color: Colors.red,
                             value: 40,
                             title: '40%',
-                            radius: 60,
+                            radius: 40,
                           ),
                           PieChartSectionData(
                             color: Colors.green,
                             value: 30,
                             title: '30%',
-                            radius: 60,
+                            radius: 30,
                           ),
                           PieChartSectionData(
                             color: Colors.blue,
                             value: 15,
                             title: '15%',
-                            radius: 60,
+                            radius: 30,
                           ),
                           PieChartSectionData(
                             color: Colors.yellow,
                             value: 15,
                             title: '15%',
-                            radius: 60,
+                            radius: 30,
                           ),
                         ],
                       ),
@@ -131,7 +132,7 @@ class _HomePieChartState extends State<HomePieChart> {
                         mainAxisSize: MainAxisSize.min,
                         children: const [
                           Text(
-                            'Total: \$5000', //da cambiare con i valori reali
+                            '\$5000', //da cambiare con i valori reali
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
