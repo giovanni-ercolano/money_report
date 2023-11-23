@@ -94,13 +94,6 @@ class _HomeState extends State<Home> {
                             height: ScreenSize.screenHeight * 0.4,
                             child: HomeCategoryList(data: userData),
                           ),
-
-                          transactionList!.when(
-                            data: (transactions) =>
-                                HomeCategoryList(data: userData),
-                            loading: () => const SizedBox(),
-                            error: (err, stack) => Text('Error: $err'),
-                          ),
                         ],
                       );
                     } else if (snapshot.hasError) {
