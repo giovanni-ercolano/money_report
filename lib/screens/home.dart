@@ -18,6 +18,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  
   void _openProfilePage(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => Navigator.push(
@@ -87,7 +88,7 @@ class _HomeState extends State<Home> {
                           ),
                           // Verifica se i dati sono pronti prima di visualizzare il widget
                           SizedBox(
-                            height: ScreenSize.screenHeight * 0.48,
+                            height: ScreenSize.screenHeight * 0.52,
                             child: const MyTabBarView(),
                           ),
                           SizedBox(

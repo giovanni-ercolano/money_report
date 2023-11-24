@@ -30,36 +30,39 @@ class _HomePieChartState extends State<HomePieChart> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(vertical: ScreenSize.padding8),
-              child: Wrap(
-                alignment: WrapAlignment.spaceAround,
-                spacing: 8.0,
-                children: filterOptions.map((filterOption) {
-                  return Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: ScreenSize.padding8),
-                    child: FilterChip(
-                      backgroundColor: AppColor.additionalOne,
-                      // checkmarkColor: AppColor.additionalOne,
-                      showCheckmark: false,
-                      label: Text(
-                        filterOption,
-                        style: TextStyle(
-                          color: activeFilter == filterOption
-                              ? AppColor.additionalOne
-                              : AppColor.additionalSix,
+              padding: EdgeInsets.symmetric(vertical: ScreenSize.padding8, horizontal: ScreenSize.padding10),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Wrap(
+                  alignment: WrapAlignment.start,
+                  spacing: 8.0,
+                  children: filterOptions.map((filterOption) {
+                    return Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: ScreenSize.padding8),
+                      child: FilterChip(
+                        backgroundColor: AppColor.additionalOne,
+                        // checkmarkColor: AppColor.additionalOne,
+                        showCheckmark: false,
+                        label: Text(
+                          filterOption,
+                          style: TextStyle(
+                            color: activeFilter == filterOption
+                                ? AppColor.additionalOne
+                                : AppColor.additionalSix,
+                          ),
                         ),
+                        selectedColor: AppColor.primaryBlue,
+                        selected: activeFilter == filterOption,
+                        onSelected: (bool selected) {
+                          setState(() {
+                            activeFilter = filterOption;
+                          });
+                        },
                       ),
-                      selectedColor: AppColor.primaryBlue,
-                      selected: activeFilter == filterOption,
-                      onSelected: (bool selected) {
-                        setState(() {
-                          activeFilter = filterOption;
-                        });
-                      },
-                    ),
-                  );
-                }).toList(),
+                    );
+                  }).toList(),
+                ),
               ),
             ),
             Row(
@@ -84,7 +87,8 @@ class _HomePieChartState extends State<HomePieChart> {
                     // Handle arrow forward
                   },
                   child: Padding(
-                    padding: EdgeInsets.all(ScreenSize.padding8),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: ScreenSize.padding20),
                     child: const Icon(Icons.arrow_forward),
                   ),
                 ),
@@ -127,10 +131,10 @@ class _HomePieChartState extends State<HomePieChart> {
                         ],
                       ),
                     ),
-                    Center(
+                    const Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           Text(
                             '\$5000', //da cambiare con i valori reali
                             style: TextStyle(

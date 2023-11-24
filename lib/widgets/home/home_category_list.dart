@@ -43,7 +43,7 @@ class _HomeCategoryListState extends State<HomeCategoryList> {
         Expanded(
           child: ListView.builder(
             shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
             itemCount: widget.data.transactions?.length,
             itemBuilder: (context, index) {
               final transaction = widget.data.transactions![index];

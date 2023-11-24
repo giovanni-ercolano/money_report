@@ -70,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Padding(
                 padding: EdgeInsets.all(ScreenSize.padding10),
                 child: ElevatedButton(
-                    onPressed: () => logout(), child: const Text("Logout")),
+                    onPressed: () => logout(), child: const Text("Logout",)),
               ),
             )
           ],

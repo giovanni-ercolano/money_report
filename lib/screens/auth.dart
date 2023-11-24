@@ -171,9 +171,9 @@ class _AuthPageState extends State<AuthPage> {
                     ),
                   ),
                   SizedBox(height: ScreenSize.padding30),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const <Widget>[
+                    children: <Widget>[
                       Expanded(
                         child: Divider(
                             indent: 16,

@@ -21,15 +21,15 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           maximumSize: const Size(double.infinity, 52),
-          textStyle: TextStyle(
-            backgroundColor:
-                isDarkMode ? AppColor.primaryBlue : AppColor.primaryCyan,
-            color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+          textStyle: const TextStyle(
+            fontSize: 18,
+            // color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix, usare foreground color
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          backgroundColor: AppColor.primaryBlue),
+          backgroundColor: AppColor.primaryBlue,
+          foregroundColor: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix),// a quanto pare bisogna usare questo per cambiare colore al bottone
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: AppColor.primaryBlue,
@@ -98,9 +98,14 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
         fontStyle: FontStyle.italic,
         color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
       ),
+      bodyLarge: TextStyle(
+        color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+      ),
+      headlineLarge: TextStyle(
+        color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
+      ),
       bodyMedium: TextStyle(
         fontSize: 14.0,
-        fontFamily: 'Montserrat',
         color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
       ),
       bodySmall: TextStyle(
@@ -118,16 +123,10 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
       titleMedium: TextStyle(
         color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
       ),
-      bodyLarge: TextStyle(
-        color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
-      ),
       headlineSmall: TextStyle(
         color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
       ),
       headlineMedium: TextStyle(
-        color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
-      ),
-      headlineLarge: TextStyle(
         color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
       ),
       labelSmall: TextStyle(
@@ -140,12 +139,5 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
         color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
       ),
     ),
-    // expansionTileTheme: ExpansionTileThemeData(
-    //   // textColor: isDarkMode ? Colors.red : darkRedITS,
-    //   // iconColor: isDarkMode ? Colors.red : darkRedITS,
-    //   collapsedIconColor: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
-    //   collapsedBackgroundColor: isDarkMode ? Colors.black : Colors.white,
-    //   backgroundColor: isDarkMode ? Colors.black : Colors.white,
-    // ),
   );
 }

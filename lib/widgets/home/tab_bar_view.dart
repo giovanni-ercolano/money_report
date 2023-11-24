@@ -53,6 +53,7 @@ class _MyTabBarViewState extends State<MyTabBarView>
                   ),
                   enableFeedback: false,
                   splashBorderRadius: BorderRadius.circular(20),
+                  indicatorSize: TabBarIndicatorSize.tab,
                   controller: tabController,
                   tabs: const [
                     Tab(
