@@ -72,7 +72,7 @@ ThemeData getThemeData(bool isDarkMode, Brightness tema) {
       color: isDarkMode ? AppColor.additionalOne : AppColor.additionalSix,
     ),
     radioTheme: RadioThemeData(
-      fillColor: MaterialStateProperty.all(
+      fillColor: WidgetStateProperty.all(
         isDarkMode ? AppColor.primaryBlue : AppColor.primaryCyan,
       ),
     ),

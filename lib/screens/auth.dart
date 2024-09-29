@@ -8,7 +8,7 @@ import '../services/firebase_db.dart';
 import '../widgets/auth/login_icon_buttons.dart';
 
 class AuthPage extends StatefulWidget {
-  const AuthPage({Key? key}) : super(key: key);
+  const AuthPage({super.key});
 
   @override
   _AuthPageState createState() => _AuthPageState();

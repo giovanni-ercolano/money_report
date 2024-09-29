@@ -6,7 +6,7 @@ import '../../screens/home.dart';
 import '../../screens/radar.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({Key? key}) : super(key: key);
+  const CustomBottomNavigationBar({super.key});
 
   @override
   _CustomBottomNavigationBarState createState() =>

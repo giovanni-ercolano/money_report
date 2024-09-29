@@ -4,7 +4,7 @@ import 'package:money_report/services/screen_size.dart';
 import '../../models/users/user_model.dart';
 
 class HomeCategoryList extends StatefulWidget {
-  const HomeCategoryList({Key? key, required this.data}) : super(key: key);
+  const HomeCategoryList({super.key, required this.data});
 
   final UserModel data;
 

@@ -3,7 +3,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../services/screen_size.dart';
 
 class ShimmerHomeWidget extends StatelessWidget {
-  const ShimmerHomeWidget({Key? key}) : super(key: key);
+  const ShimmerHomeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

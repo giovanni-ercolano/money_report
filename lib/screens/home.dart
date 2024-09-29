@@ -11,7 +11,7 @@ import '../widgets/home/home_category_list.dart';
 import '../widgets/shimmer_widgets/shimmer_home_widget.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();

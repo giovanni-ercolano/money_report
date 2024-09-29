@@ -5,7 +5,7 @@ import 'package:money_report/services/screen_size.dart';
 import '../../styles/app_color.dart';
 
 class HomePieChart extends StatefulWidget {
-  const HomePieChart({Key? key}) : super(key: key);
+  const HomePieChart({super.key});
 
   @override
   State<HomePieChart> createState() => _HomePieChartState();

@@ -6,8 +6,8 @@ import '../../styles/app_color.dart';
 
 class MyTabBarView extends StatefulWidget {
   const MyTabBarView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<MyTabBarView> createState() => _MyTabBarViewState();
